@@ -1,0 +1,16 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Node (if a build step is added later)
+node_modules/
+*.log
+
+# Local env
+.env
+
+# WordPress (the repo is the THEME only; never commit core/uploads)
+wp-config.php

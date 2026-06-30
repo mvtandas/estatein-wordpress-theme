@@ -1,0 +1,100 @@
+/**
+ * Design tokens — Estatein dark theme.
+ *
+ * Values are taken verbatim from the Figma file (lYBJF2O0z2dHG2UErTfMKz)
+ * via the Figma MCP `get_variable_defs` on the Home Page – Desktop artboard:
+ *   Grey/08 #141414 · Grey/10 #1A1A1A · Grey/15 #262626 · Grey/20 #333333
+ *   Grey/30 #4D4D4D · Grey/40 #666666 · Grey/50 #808080 · Grey/60 #999999
+ *   Purple/60 #703BF7 · Purple/75 #A685FA · Absolute/White #FFFFFF
+ * Everything else in the theme references these custom properties — never hard-coded hex.
+ */
+
+:root {
+  /* ---- Color: brand (Purple) ---- */
+  --color-purple: #703bf7;       /* Purple/60 — primary */
+  --color-purple-light: #a685fa; /* Purple/75 — accents, hover text */
+  --color-purple-hover: #5a2fd6; /* darkened Purple/60 for button hover */
+  --color-purple-tint: rgba(112, 59, 247, 0.12);
+
+  /* ---- Color: greys (verbatim Figma scale) ---- */
+  --color-bg: #141414;          /* Grey/08 — page background */
+  --color-surface: #1a1a1a;     /* Grey/10 — banner, nav, chips, inner buttons */
+  --color-surface-2: #141414;   /* Grey/08 — content cards (border-defined on #141414) */
+  --color-card-alt: #1a1a1a;    /* Grey/10 — hero stat cards, feature cards */
+  --color-surface-3: #262626;   /* Grey/15 — nested chips / insets */
+  --color-border: #262626;      /* Grey/15 */
+  --color-border-soft: #262626;  /* Grey/15 */
+  --grey-20: #333333;
+  --grey-30: #4d4d4d;
+  --grey-40: #666666;
+  --grey-50: #808080;
+  --grey-60: #999999;
+
+  /* ---- Color: text ---- */
+  --color-text: #ffffff;
+  --color-text-muted: #999999;  /* Grey/60 */
+  --color-text-dim: #666666;    /* Grey/40 */
+  --color-on-purple: #ffffff;
+
+  /* ---- Gradients ---- */
+  --gradient-purple: linear-gradient(135deg, #703bf7 0%, #5a2fd6 100%);
+  --gradient-surface: linear-gradient(180deg, #1a1a1a 0%, #141414 100%);
+
+  /* ---- Typography ---- */
+  --font-sans: "Urbanist", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fs-12: 0.75rem;
+  --fs-14: 0.875rem;
+  --fs-16: 1rem;
+  --fs-18: 1.125rem;   /* Figma body / nav default */
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-30: 1.875rem;
+  --fs-38: 2.375rem;
+  --fs-40: 2.5rem;     /* stat values */
+  --fs-48: 3rem;       /* section headings */
+  --fs-60: 3.75rem;    /* hero heading */
+  --fs-64: 4rem;
+  --lh-tight: 1.1;
+  --lh-snug: 1.3;
+  --lh-normal: 1.5;    /* Figma uses 1.5 for body copy */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ---- Spacing scale ---- */
+  --space-2: 0.125rem;
+  --space-4: 0.25rem;
+  --space-8: 0.5rem;
+  --space-12: 0.75rem;
+  --space-16: 1rem;
+  --space-20: 1.25rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-40: 2.5rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+  --space-80: 5rem;
+  --space-120: 7.5rem;
+
+  /* ---- Radius ---- */
+  --radius-sm: 6px;
+  --radius-md: 10px;   /* buttons (Figma) */
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+
+  /* ---- Layout ---- */
+  --container-max: 1596px;  /* Figma content width: 1920 − 2×162 gutter */
+  --container-pad: 1.25rem;
+  /* side gutter that lines full-bleed content (hero/CTA/footer) up with the
+     .container CONTENT edge — i.e. matches the header logo / section content. */
+  --gutter: max(var(--container-pad), calc((100vw - var(--container-max)) / 2 + var(--container-pad)));
+  --header-h: 99px;         /* Figma navigation bar height */
+  --banner-h: 63px;         /* Figma top promo banner height */
+
+  /* ---- Effects ---- */
+  --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.35);
+  --ring-focus: 0 0 0 3px rgba(112, 59, 247, 0.55);
+  --transition: 0.2s ease;
+}

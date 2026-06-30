@@ -1,0 +1,14 @@
+# WordPress core + runtime (the theme is the deliverable, not WP itself)
+/wp/
+
+# Build artifacts / packages
+*.zip
+/dist/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+
+# Internal working notes & tooling
+/.claude/
+/RESUME.md

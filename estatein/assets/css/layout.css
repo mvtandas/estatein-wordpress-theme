@@ -1,0 +1,327 @@
+/**
+ * Layout — containers, header, footer, sections, grids.
+ * Depends on tokens.css.
+ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+.container--narrow { max-width: 820px; }
+
+.section { padding-block: var(--space-80); }
+.section--alt { background: var(--color-bg); }
+.section--center { text-align: center; }
+.section__action { margin-top: var(--space-48); text-align: center; }
+
+/* ---- Header ---- */
+.site-header { border-bottom: 1px solid var(--color-border); }
+
+/* Promo banner (Figma 60:3094) */
+.promo-banner {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-12);
+  padding: 18px var(--container-pad);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+.promo-banner[hidden] { display: none; }
+.promo-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* same line texture as the hero, kept at a consistent scale */
+  background: url("../img/photos/hero-texture.webp") center / 1920px auto no-repeat;
+  opacity: 0.6;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.promo-banner__text {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #fff;
+  font-size: var(--fs-18);
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+  text-align: center;
+}
+.promo-banner__sparkle { margin-right: var(--space-4); }
+.promo-banner__link { color: #fff; text-decoration: underline; margin-left: var(--space-8); }
+.promo-banner__link:hover { color: var(--color-purple-light); }
+.promo-banner__close {
+  position: absolute;
+  z-index: 1;
+  right: var(--space-32);
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 0;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+}
+.promo-banner__close img { width: 24px; height: 24px; }
+.promo-banner__close:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* Navigation bar (Figma 60:3124) */
+.site-nav-bar { background: var(--color-surface); }
+.site-nav-bar__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-32);
+  padding-block: var(--space-20);
+}
+.site-logo { display: inline-flex; align-items: center; gap: var(--space-12); font-weight: var(--fw-bold); color: #fff; }
+.site-logo__mark { width: 40px; height: 40px; }
+.site-logo__text { font-size: var(--fs-24); font-weight: var(--fw-bold); letter-spacing: -0.01em; }
+
+/* Menu is absolutely centred in the bar (Figma "Buttons Container" 60:3115) */
+.site-nav {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.site-nav__menu { display: flex; align-items: center; gap: var(--space-32); list-style: none; padding: 0; margin: 0; }
+.site-nav__menu a {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-18);
+  line-height: 1.5;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  padding: 14px 0;
+}
+.site-nav__menu a:hover { color: var(--color-purple-light); }
+/* Active page rendered as a bordered button (Figma 60:3116) */
+.site-nav__menu .current-menu-item > a,
+.site-nav__menu .current_page_item > a {
+  background: var(--color-bg);
+  border-color: var(--color-border);
+  padding: 14px var(--space-24);
+  color: #fff;
+}
+.site-header__cta { position: relative; }
+
+.nav-toggle { display: none; }
+
+/* ---- Footer (Figma 89:3943) ---- */
+.site-footer { background: var(--color-bg); border-top: 1px solid var(--color-border); }
+.site-footer__top {
+  display: flex;
+  gap: var(--space-80);
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: var(--space-80) var(--gutter);
+  flex-wrap: wrap;
+}
+.site-footer__brand { display: flex; flex-direction: column; gap: var(--space-32); flex: 0 1 538px; }
+.newsletter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16) var(--space-24);
+  max-width: 423px;
+}
+.newsletter__icon { display: grid; place-items: center; }
+.newsletter__icon img { width: 20px; height: 20px; }
+.newsletter__input { flex: 1; min-width: 0; background: transparent; border: 0; color: #fff; padding: 0; font-size: var(--fs-18); }
+.newsletter__input::placeholder { color: var(--color-text-muted); }
+.newsletter__input:focus-visible { outline: 0; }
+.newsletter__submit { background: transparent; border: 0; cursor: pointer; display: grid; place-items: center; padding: 0; }
+.newsletter__submit img { width: 24px; height: 24px; }
+
+.site-footer__cols { display: flex; gap: var(--space-48); flex-wrap: wrap; }
+.footer-col { display: flex; flex-direction: column; gap: var(--space-32); }
+.footer-col__title { color: var(--color-text-muted); font-size: var(--fs-20); }
+.footer-col__links { display: flex; flex-direction: column; gap: var(--space-20); list-style: none; padding: 0; margin: 0; }
+.footer-col__links a { color: #fff; font-size: var(--fs-18); }
+.footer-col__links a:hover { color: var(--color-purple-light); }
+
+.site-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-24);
+  background: var(--color-surface);
+  padding: var(--space-16) var(--gutter);
+  flex-wrap: wrap;
+}
+.site-footer__legal { display: flex; gap: var(--space-32); flex-wrap: wrap; color: #fff; font-size: var(--fs-18); }
+.site-footer__legal a:hover { color: var(--color-purple-light); }
+.social-links { display: flex; gap: var(--space-12); padding: 0; list-style: none; margin: 0; }
+.social-links__btn { width: 52px; height: 52px; border-radius: 50%; background: var(--color-bg); display: grid; place-items: center; }
+.social-links__btn img { width: 24px; height: 24px; }
+.social-links__btn:hover { background: var(--color-purple); }
+
+/* ---- Grids ---- */
+.property-grid,
+.service-grid,
+.post-grid,
+.team-grid {
+  display: grid;
+  gap: var(--space-32);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.feature-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-12); list-style: none; padding: 0; }
+
+/* ---- Hero (Figma 121:1772) — full-bleed two-column ---- */
+.hero {
+  background: var(--color-bg);
+  overflow: hidden;
+}
+.hero__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+.hero__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  /* right pad kept small so content stays ~758px (Figma) from ~1700–1920px */
+  padding: var(--space-64) var(--space-40) var(--space-64) var(--gutter);
+}
+.hero__title,
+.hero__lede,
+.hero__actions,
+.hero__stats { width: 100%; max-width: 760px; }
+/* Badge straddles the text/image boundary, upper area (Figma 121:1778: center ~51%/22%) */
+.hero__badge {
+  position: absolute;
+  left: 50%;
+  top: 27%;
+  transform: translate(-50%, -50%);
+  width: 124px;
+  height: 124px;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero__badge-ring {
+  transform-box: view-box;
+  transform-origin: 70px 70px;
+  animation: hero-badge-spin 22s linear infinite;
+}
+@keyframes hero-badge-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .hero__badge-ring { animation: none; } }
+.hero__title { font-size: var(--fs-60); line-height: 72px; font-weight: var(--fw-semibold); min-width: 0; }
+.hero__lede { max-width: 44ch; margin-top: var(--space-24); font-size: var(--fs-18); line-height: 27px; color: var(--color-text-muted); }
+.hero__actions { display: flex; gap: var(--space-20); margin-top: var(--space-40); flex-wrap: wrap; }
+.hero__stats { display: flex; gap: var(--space-20); margin-top: var(--space-48); padding: 0; list-style: none; flex-wrap: wrap; }
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1 1 0;
+  min-width: 150px;
+  padding: var(--space-16) var(--space-24);
+  background: var(--color-card-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+.hero__stat-value { font-size: var(--fs-40); line-height: 60px; font-weight: var(--fw-bold); }
+.hero__stat-label { color: var(--color-text-muted); font-size: var(--fs-18); line-height: 27px; }
+.hero__media { position: relative; min-height: clamp(560px, 42vw, 780px); background: var(--color-surface); overflow: hidden; }
+.hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* faint line-art mesh over the photo (Figma Abstract Design 121:1829) */
+.hero__media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: url("../img/photos/hero-texture.webp") center / cover no-repeat;
+  opacity: 0.45;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(225deg, rgba(42, 33, 63, 0.75) 0%, rgba(20, 20, 20, 0) 38%);
+}
+
+/* ---- Feature strip (Figma hero sub-container 121:1890) ---- */
+.feature-strip { background: var(--color-bg); border-block: 1px solid var(--color-border); }
+/* Full-bleed strip (Figma 1920-wide, 20px edges → wide ~455px horizontal cards) */
+.feature-strip__inner {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-20);
+  padding: var(--space-20);
+}
+.feature-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-20);
+  text-align: center;
+  padding: var(--space-40) var(--space-20);
+  background: var(--color-card-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  color: #fff;
+}
+.feature-card:hover { border-color: var(--color-purple); }
+/* Concentric purple-gradient rings — exact Figma export (Icon Container) */
+.feature-card__icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 82px;
+  height: 82px;
+  background: url("../img/icons/feature-rings.svg") center / contain no-repeat;
+}
+.feature-card__icon img { position: relative; width: 34px; height: 34px; }
+.feature-card__title { font-size: var(--fs-20); line-height: 30px; font-weight: var(--fw-semibold); }
+.feature-card__arrow { position: absolute; top: var(--space-24); right: var(--space-24); color: var(--grey-30); font-size: var(--fs-24); line-height: 1; }
+.feature-card:hover .feature-card__arrow { color: var(--color-purple-light); }
+
+/* ---- Page hero (interior pages) ---- */
+
+.page-hero { padding-block: var(--space-80) var(--space-48); background: var(--color-surface); }
+.page-hero__title { font-size: var(--fs-48); }
+.page-hero__lede { max-width: 60ch; margin-top: var(--space-16); }
+
+/* ---- Contact layout ---- */
+.contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--space-48); }
+.contact-details { display: grid; gap: var(--space-16); margin-top: var(--space-32); padding: 0; }
+.contact-details li { display: grid; gap: var(--space-4); }
+.contact-details__label { color: var(--color-text-dim); font-size: var(--fs-14); text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* ---- Property single ---- */
+.property-single { padding-block: var(--space-48) var(--space-80); }
+.property-single__header { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-24); flex-wrap: wrap; margin-bottom: var(--space-32); }
+.property-gallery { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-16); margin-bottom: var(--space-48); }
+.property-gallery__thumbs { display: grid; gap: var(--space-16); padding: 0; }
+.property-gallery img { border-radius: var(--radius-lg); }
+.property-single__layout { display: grid; grid-template-columns: 1.6fr 1fr; gap: var(--space-48); }
