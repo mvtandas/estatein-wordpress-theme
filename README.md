@@ -3,6 +3,10 @@
 A pixel-perfect, fully responsive custom WordPress theme built from the
 [Estatein Real Estate UI template (Figma)](https://www.figma.com/community/file/1314076616839640516).
 
+**Links**
+- Theme download: [GitHub release v1.0.0](https://github.com/mvtandas/estatein-wordpress-theme/releases/tag/v1.0.0)
+- Runnable demo (full SQLite WordPress, run locally): [Google Drive](https://drive.google.com/file/d/15kR4xwKMyba--WXHDBiuAr5sZyriqCvM/view?usp=sharing)
+
 > Development notes, architecture and how each brief requirement is met:
 > see **[DOCUMENTATION.md](DOCUMENTATION.md)**.
 
