@@ -74,6 +74,25 @@ estatein/
 └── assets/{css,js,img}    # tokens→base→layout→components→responsive; vanilla JS + self-hosted GSAP
 ```
 
+## Packaged deliverables (`dist/`)
+
+Two ready-to-submit archives are generated in `dist/` (git-ignored):
+
+| File | What it is | Use |
+|------|-----------|-----|
+| `estatein-theme.zip` (~1.9 MB) | The theme only | **Appearance → Themes → Add New → Upload Theme** on any WordPress |
+| `estatein-site.zip` (~33 MB) | The full SQLite WordPress install with theme + demo content | Unzip, then `php -S 127.0.0.1:8089 -t wp/` to run the whole site locally |
+
+## Push the code to GitHub
+
+This folder is a git repo (theme + docs; `wp/` core is ignored). To publish:
+
+```bash
+git remote add origin https://github.com/<you>/estatein.git
+git branch -M main
+git push -u origin main
+```
+
 ## Notes
 
 - **SQLite vs MySQL:** the demo uses the SQLite integration plugin for portability. For
